@@ -1,7 +1,7 @@
 
 public class ComplexityResultJsonFormatter
 {
-	public String formatLexerResult(ComplexityResult complexity)
+	public String formatComplexityResult(ComplexityResult complexity)
 	{
 		String result = "\""+complexity.getFilename()+"\":{";
 

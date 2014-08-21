@@ -1,17 +1,17 @@
 
-public class AtomicJSONObject
+public class BatchComplexityResultFormatter
 {
 	private String mObjectBuffer = "{";
 	
 	private String mSeparator = "";
 	
-	public synchronized void addObject(String object)
+	public synchronized void addResult(String object)
 	{
 		mObjectBuffer += mSeparator + object;
 		mSeparator = ",";
 	}
 	
-	public String getObjectBuffer()
+	public String getFormattedResults()
 	{
 		return mObjectBuffer+"}";
 	}
