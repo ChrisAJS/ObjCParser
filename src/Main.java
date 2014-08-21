@@ -79,6 +79,8 @@ public class Main
 		{
 			System.out.println(formatter.formatLexerResult(results.getValue()));
 		}
+		
+		System.exit(0);
 	}
 
 	private static void processFile(ComplexityResult complexityResult, File sourceFile) throws IOException
