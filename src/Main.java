@@ -51,6 +51,7 @@ public class Main
 		}
 	}
 	
+	private static AtomicJSONObject resultJson;
 	private static CountDownLatch processedFilesLatch;
 	private static HashMap<String, ComplexityResult>	complexityResults	= new HashMap<String, ComplexityResult>();
 	
@@ -58,6 +59,7 @@ public class Main
 
 	public static void main(String[] args)
 	{
+		resultJson = new AtomicJSONObject();
 		processedFilesLatch = new CountDownLatch(args.length);
 		
 		for (int i = 0; i < args.length; i++)
@@ -74,12 +76,25 @@ public class Main
 			e.printStackTrace();
 		}
 		
+		String result = "";
 		ComplexityResultJsonFormatter formatter = new ComplexityResultJsonFormatter();
-		for (Entry<String, ComplexityResult> results : complexityResults.entrySet())
+		if(args.length == 1)
 		{
-			System.out.println(formatter.formatLexerResult(results.getValue()));
+			for (Entry<String, ComplexityResult> results : complexityResults.entrySet())
+			{
+				result += formatter.formatLexerResult(results.getValue());
+			}
 		}
-		
+		else
+		{
+			for (Entry<String, ComplexityResult> results : complexityResults.entrySet())
+			{
+				resultJson.addObject(formatter.formatLexerResult(results.getValue()));
+			}
+			result = resultJson.getObjectBuffer();
+		}
+
+		System.out.println(result);
 		System.exit(0);
 	}
 
