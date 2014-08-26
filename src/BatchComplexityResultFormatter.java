@@ -1,5 +1,5 @@
 
-public class BatchComplexityResultFormatter
+public final class BatchComplexityResultFormatter
 {
 	private String mObjectBuffer = "{";
 	

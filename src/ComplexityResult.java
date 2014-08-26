@@ -5,7 +5,7 @@
  * @author ChrisAJS
  *
  */
-public class ComplexityResult
+public final class ComplexityResult
 {
 	private int numBranches = 0;
 	private int numDependencies = 0;

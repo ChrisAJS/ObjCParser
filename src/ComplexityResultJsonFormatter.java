@@ -1,5 +1,5 @@
 
-public class ComplexityResultJsonFormatter
+public final class ComplexityResultJsonFormatter
 {
 	public String formatComplexityResult(ComplexityResult complexity)
 	{

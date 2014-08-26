@@ -8,8 +8,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-
-public class SourceFileComplexityParser
+public final class SourceFileComplexityParser
 {
 	private File mSourceFile;
 	private File mHeaderFile;
@@ -63,32 +62,23 @@ public class SourceFileComplexityParser
 		}
 
 		ParserRuleContext tree = generateAST(tokenStream);
-
-		if (foundSuperClass(tree))
-		{
-			complexityResult.addSuperClass();
-		}
-
+		findSuperClass(tree, complexityResult);
 	}
 
-	private static boolean foundSuperClass(ParseTree branch)
+	private static void findSuperClass(ParseTree branch, ComplexityResult result)
 	{
 		if (branch.getPayload() instanceof ObjCParser.Superclass_nameContext)
 		{
-			return !branch.getText().equals("NSObject");
+			if (!branch.getText().equals("NSObject"))
+			{
+				result.addSuperClass();
+			}
 		}
-
-		boolean result = false;
 
 		for (int i = 0; i < branch.getChildCount(); i++)
 		{
-			if (foundSuperClass(branch.getChild(i)))
-			{
-				result = true;
-				break;
-			}
+			findSuperClass(branch.getChild(i), result);
 		}
-		return result;
 	}
 
 	private ParserRuleContext generateAST(CommonTokenStream tokenStream)

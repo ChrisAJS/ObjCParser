@@ -1,0 +1,93 @@
+[
+  {
+    "ref": "a4010c9",
+    "author": "Chris S",
+    "date": "2014-08-21 18:55:23 +0100",
+    "comment": "Began creating standalone complexity calculator for objective-C based on antlr",
+    "num_files_touched": 7,
+    "complexity": {
+      "sum_of_file_weights": 460,
+      "max_of_file_weights": 456,
+      "mean_of_file_weights": 153.33,
+      "delta_sum_of_file_weights": 460
+    }
+  },
+  {
+    "ref": "7cf04ce",
+    "author": "Chris S",
+    "date": "2014-08-21 19:11:58 +0100",
+    "comment": "Got super class detection working",
+    "num_files_touched": 1,
+    "complexity": {
+      "sum_of_file_weights": 532,
+      "max_of_file_weights": 528,
+      "mean_of_file_weights": 177.33,
+      "delta_sum_of_file_weights": 72
+    }
+  },
+  {
+    "ref": "4671bce",
+    "author": "Chris S",
+    "date": "2014-08-21 20:41:49 +0100",
+    "comment": "Updated OBJC lexer to handle floats better, removed warnings",
+    "num_files_touched": 3,
+    "complexity": {
+      "sum_of_file_weights": 949,
+      "max_of_file_weights": 945,
+      "mean_of_file_weights": 316.33,
+      "delta_sum_of_file_weights": 417
+    }
+  },
+  {
+    "ref": "3e97e1b",
+    "author": "Chris S",
+    "date": "2014-08-21 20:51:53 +0100",
+    "comment": "Fixed floating points, for real, added System.exit... smelly",
+    "num_files_touched": 3,
+    "complexity": {
+      "sum_of_file_weights": 949,
+      "max_of_file_weights": 945,
+      "mean_of_file_weights": 316.33,
+      "delta_sum_of_file_weights": 0
+    }
+  },
+  {
+    "ref": "6663d01",
+    "author": "Chris S",
+    "date": "2014-08-21 22:10:03 +0100",
+    "comment": "Can handle single and multiple files now",
+    "num_files_touched": 3,
+    "complexity": {
+      "sum_of_file_weights": 1041,
+      "max_of_file_weights": 1035,
+      "mean_of_file_weights": 260.25,
+      "delta_sum_of_file_weights": 92
+    }
+  },
+  {
+    "ref": "c553779",
+    "author": "Chris S",
+    "date": "2014-08-22 00:28:12 +0100",
+    "comment": "Refactored Main and removed smelly System.exit call by shutting down thread pool. Used callables instead",
+    "num_files_touched": 6,
+    "complexity": {
+      "sum_of_file_weights": 388,
+      "max_of_file_weights": 306,
+      "mean_of_file_weights": 64.67,
+      "delta_sum_of_file_weights": -653
+    }
+  },
+  {
+    "ref": "b176eed",
+    "author": "Chris S",
+    "date": "2014-08-26 22:05:10 +0100",
+    "comment": "refactored main class and encapsulated output writing",
+    "num_files_touched": 3,
+    "complexity": {
+      "sum_of_file_weights": 418,
+      "max_of_file_weights": 306,
+      "mean_of_file_weights": 59.71,
+      "delta_sum_of_file_weights": 30
+    }
+  }
+]

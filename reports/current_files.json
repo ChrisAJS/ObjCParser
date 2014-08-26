@@ -1,0 +1,58 @@
+[
+  {
+    "num_branches": 0,
+    "num_dependencies": 1,
+    "num_superclasses": 1,
+    "weight": 4,
+    "churn": 1,
+    "filename": "src/SourceParseCallable.java"
+  },
+  {
+    "num_branches": 0,
+    "num_dependencies": 0,
+    "num_superclasses": 1,
+    "weight": 2,
+    "churn": 1,
+    "filename": "src/ComplexityResult.java"
+  },
+  {
+    "num_branches": 0,
+    "num_dependencies": 0,
+    "num_superclasses": 1,
+    "weight": 2,
+    "churn": 3,
+    "filename": "src/ComplexityResultJsonFormatter.java"
+  },
+  {
+    "num_branches": 7,
+    "num_dependencies": 5,
+    "num_superclasses": 1,
+    "weight": 96,
+    "churn": 7,
+    "filename": "src/Main.java"
+  },
+  {
+    "num_branches": 2,
+    "num_dependencies": 1,
+    "num_superclasses": 0,
+    "weight": 6,
+    "churn": 1,
+    "filename": "src/ConsoleOutputWriter.java"
+  },
+  {
+    "num_branches": 0,
+    "num_dependencies": 0,
+    "num_superclasses": 1,
+    "weight": 2,
+    "churn": 1,
+    "filename": "src/BatchComplexityResultFormatter.java"
+  },
+  {
+    "num_branches": 16,
+    "num_dependencies": 8,
+    "num_superclasses": 1,
+    "weight": 306,
+    "churn": 1,
+    "filename": "src/SourceFileComplexityParser.java"
+  }
+]
