@@ -6,34 +6,54 @@ import java.util.concurrent.Future;
 
 public class Main
 {
-
 	public static void main(String[] args)
 	{
-		ExecutorService threadPool = Executors.newFixedThreadPool(8);
+		if(args.length == 0)
+		{
+			System.err.println("Usage: objparser objcsource.m [objcsource2.m...]");
+			System.exit(-1);
+		}
+		
+		ExecutorService threadPool = Executors.newFixedThreadPool(determineThreadCount());
+		ConsoleOutputWriter outputWriter = new ConsoleOutputWriter();
 		ArrayList<Future<ComplexityResult>> futures = new ArrayList<Future<ComplexityResult>>();
+
 		for (int i = 0; i < args.length; i++)
 		{
 			futures.add(threadPool.submit(new SourceParseCallable(args[i])));
 		}
 
-		String result = "";
+		for (Future<ComplexityResult> future : futures)
+		{
+			outputWriter.addComplexityResult(getComplexityResult(future));
+		}
 
-		ComplexityResultJsonFormatter formatter = new ComplexityResultJsonFormatter();
-		if (futures.size() == 1)
-		{
-			result += formatter.formatComplexityResult(getComplexityResult(futures.get(0)));
-		}
-		else
-		{
-			BatchComplexityResultFormatter resultFormatter = new BatchComplexityResultFormatter();
-			for (Future<ComplexityResult> future : futures)
-			{
-				resultFormatter.addResult(formatter.formatComplexityResult(getComplexityResult(future)));
-			}
-			result = resultFormatter.getFormattedResults();
-		}
 		threadPool.shutdown();
-		System.out.println(result);
+		outputWriter.outputComplexityResults();
+		System.exit(0);
+	}
+
+	private static int determineThreadCount()
+	{
+		int result = 1;
+		String numThreads = System.getProperty("numThreads");
+
+		if (numThreads != null)
+		{
+			try
+			{
+				result = Integer.parseInt(numThreads);
+			}
+			catch (NumberFormatException e)
+			{
+				e.printStackTrace();
+				System.err.println("numThreads must be an integer value. Defaulting to 1 thread");
+			}
+		}
+
+		System.out.println("NUM THREADS: "+numThreads);
+		
+		return result;
 	}
 
 	private static ComplexityResult getComplexityResult(Future<ComplexityResult> future)
