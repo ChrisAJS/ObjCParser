@@ -50,8 +50,6 @@ public final class Main
 				System.err.println("numThreads must be an integer value. Defaulting to 1 thread");
 			}
 		}
-
-		System.out.println("NUM THREADS: "+numThreads);
 		
 		return result;
 	}
